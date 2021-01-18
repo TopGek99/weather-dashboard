@@ -1,0 +1,27 @@
+header {
+    background-color:rebeccapurple;
+    padding: 2%;
+}
+h1 {
+    color: white;
+    margin: 0 40%;
+}
+label {
+    font-size:xx-large;
+    font-weight: 500;
+    display: block;
+}
+#search {
+    padding: 1% 0 0 1.5%;
+    width: 20%;
+}
+#search-bar {
+    width: 80%;
+    display: inline;
+}
+#search-button {
+    width: 15%;
+}
+input,button {
+  vertical-align: middle; 
+}
