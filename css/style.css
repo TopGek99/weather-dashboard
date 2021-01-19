@@ -2,9 +2,18 @@ header {
     background-color:rebeccapurple;
     padding: 2%;
 }
-h1 {
+#title {
     color: white;
-    margin: 0 40%;
+    margin: 0 30%;
+}
+h1 {
+    font-size: 75px;
+}
+#city-name {
+    margin-bottom: 5%;
+}
+p {
+    font-size: larger;
 }
 label {
     font-size:xx-large;
@@ -13,15 +22,62 @@ label {
 }
 #search {
     padding: 1% 0 0 1.5%;
-    width: 20%;
+    width: 30%;
+    float: left;
 }
 #search-bar {
-    width: 80%;
+    width: 87.5%;
     display: inline;
 }
 #search-button {
-    width: 15%;
+    width: 10%;
+    float: right;
 }
 input,button {
   vertical-align: middle; 
+}
+#history {
+    display: none;
+    margin-top: 5%;
+    border: lightgrey 1px solid;
+    border-radius: 5px;
+    font-size: larger;
+}
+.h-button {
+    width: 100%;
+    text-align: left;
+    padding: 3% 2%;
+}
+.h-button:hover {
+    background-color: lightgrey;
+}
+#weather-content {
+    display: inline;
+    margin: 2.5% 0 0 5%;
+    float: left;
+    width: 60%;
+}
+#current-day {
+    border: lightgrey 1px solid;
+    border-radius: 5px;
+    padding: 2.5% 5%;
+}
+#fvd-forecast {
+    margin-top: 2.5%;
+}
+
+.low {
+    background-color: lime;
+}
+.moderate {
+    background-color: lightgreen;
+}
+.high {
+    background-color: orange;
+}
+.very-high {
+    background-color: orangered;
+}
+.extreme {
+    background-color: red;
 }

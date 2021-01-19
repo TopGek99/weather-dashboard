@@ -18,7 +18,7 @@
 </head>
 <body>
     <header>
-        <h1>Weather Dashboard</h1>
+        <h1 id="title">Weather Dashboard</h1>
     </header>
     <div id="search">
         <form>
@@ -26,17 +26,21 @@
             <input type="text" class="form-control" id="search-bar">
             <button type="submit" class="btn btn-primary" id="search-button"><i class="fa fa-search" id="search-icon"></i></button>
         </form>
+        <div id="history"></div>
     </div>
-    <div id="weather-content">
-        <h2 id="city-name"></h2>
-        <p id="temp"></p>
-        <p id="humidity"></p>
-        <p id="wspeed"></p>
-        <p id="uv"></p>
+    <div id="weather-content" style="display: none;">
+        <div id="current-day">
+            <h1 id="city-name"></h1>
+            <p id="temp"></p>
+            <p id="humidity"></p>
+            <p id="wspeed"></p>
+            <p id="uv"></p>
+        </div>
+        <div id="fvd-forecast">
+            <h2>5 Day Forecast: </h2>
+        </div>
     </div>
-    <div id="fvd-forecast" style="display: none;">
-        <h3>5 Day Forecast: </h3>
-    </div>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="javascript/script.js"></script>
