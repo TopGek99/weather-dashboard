@@ -65,8 +65,9 @@ searchButton.on("click", function(event) {
         url: queryURL,
         method: "GET"
     }).then(function(response) {
-        for (var i=9;i<40;i+=8) {
-            console.log(response.list[i].dt_txt);
+        for (var i=0;i<40;i++) {
+            var offsetMoment = moment(response.list[i].dt,'X').utcOffset(response.city.timezone);
+            console.log(offsetMoment.format("[(]DD[/]MM[/]YYYY[)]"));
         }
     });
 });
