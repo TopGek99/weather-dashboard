@@ -10,7 +10,13 @@ h1 {
     font-size: 50px;
 }
 #city-name {
-    margin-bottom: 5%;
+    display: inline;
+}
+#city-name,img {
+    vertical-align: middle; 
+  }
+#temp {
+    margin-top: 2%;
 }
 p {
     font-size: larger;
@@ -32,6 +38,9 @@ label {
 #search-button {
     width: 10%;
     float: right;
+}
+#clear-button {
+    margin-top: 5%;
 }
 input,button {
   vertical-align: middle; 
@@ -64,6 +73,16 @@ input,button {
 }
 #fvd-forecast {
     margin-top: 2.5%;
+    width: 100%;
+}
+.forecast {
+    width: 17%;
+    padding: 1%;
+    margin: 2% 0 0 3%;
+    display: inline;
+    float: left;
+    background-color:rebeccapurple;
+    color: white;
 }
 
 .low {

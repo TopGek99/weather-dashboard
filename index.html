@@ -26,11 +26,13 @@
             <input type="text" class="form-control" id="search-bar">
             <button type="submit" class="btn btn-primary" id="search-button"><i class="fa fa-search" id="search-icon"></i></button>
         </form>
+        <button class="btn btn-secondary" id="clear-button">Clear History</button>
         <div id="history"></div>
     </div>
     <div id="weather-content" style="display: none;">
         <div id="current-day">
             <h1 id="city-name"></h1>
+            <img id="icon" src="" alt="">
             <p id="temp"></p>
             <p id="humidity"></p>
             <p id="wspeed"></p>
@@ -38,6 +40,7 @@
         </div>
         <div id="fvd-forecast">
             <h2>5 Day Forecast: </h2>
+            <div id="cards"></div>
         </div>
     </div>
     
