@@ -49,13 +49,14 @@ clearButton.on("click", function() {
 searchButton.on("click", function(event) {
     event.preventDefault();
 
+    // creates a button in the search history for the user to return to if they wish
     var historyButton = createHistoryButton(searchInput.val());
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q="+searchInput.val()+"&appid=eb152b9f91aaa5406eae378de1186186";
     $.ajax({
         url: queryURL,
         method: "GET"
     }).then(function(response) {
-        fiveDayForecast.empty();
+        // only adding the history button to the page if the ajax request is successful
         historyDiv.prepend(historyButton);
         historyDiv.attr("style","display: block;");
         var historyButtonList = $(".h-button");
@@ -66,6 +67,7 @@ searchButton.on("click", function(event) {
         localStorage.setItem("list",JSON.stringify(cityList));
         showWeather(response);
     }).fail(function() {
+        // telling the user if they have entered an invalid city name
         var error = $("<p>").text("Warning: Please enter a valid city name");
         error.attr("style","color: red;");
         $("form").after(error);
@@ -81,12 +83,15 @@ searchButton.on("click", function(event) {
     }).then(function(response) {forecast5Day(response)});
 });
 
+// converts Kelvin to Celsius
 function KtoC(temp) {
     var tempC = temp-273.15;
     return tempC.toFixed(2);
 }
 
+// takes in a response from the weather api and displays the city name, date, temperature, humidity, wind speed and uv index
 function showWeather(apiResponse) {
+    fiveDayForecast.empty();
     var currentDateText = moment.unix(apiResponse.dt).utcOffset(apiResponse.timezone/3600).format("[(]DD[/]MM[/]YYYY[)]");
     cityName.text(apiResponse.name+" "+currentDateText);
     currentDayIcon.attr("src","http://openweathermap.org/img/wn/"+apiResponse.weather[0].icon+".png");
@@ -95,7 +100,8 @@ function showWeather(apiResponse) {
     temp.text("Temperature: "+KtoC(apiResponse.main.temp)+"°C");
     humidity.text("Humidity: "+apiResponse.main.humidity+"%");
     windSpeed.text("Wind Speed: "+apiResponse.wind.speed+" MPH");
-        
+    
+    // another ajax request using the latitude and longitude given from the previous one is required to retrieve the uv index
     var lat = apiResponse.coord.lat;
     var lon = apiResponse.coord.lon;
     var newQueryURL = "https://api.openweathermap.org/data/2.5/onecall?lat="+lat+"&lon="+lon+"&appid=eb152b9f91aaa5406eae378de1186186";
@@ -106,6 +112,7 @@ function showWeather(apiResponse) {
         var uvSpan = $("<span>");
         var uvi = newResponse.current.uvi;
         uvSpan.text(uvi);
+        // scale classifying the uv index from https://www.cancer.org.au/cancer-information/causes-and-prevention/sun-safety/uv-index
         if (uvi >= 1 && uvi < 3) {
             uvSpan.addClass("low");
         } else if (uvi >= 3 && uvi < 6) {
@@ -123,6 +130,7 @@ function showWeather(apiResponse) {
     });
 }
 
+// similar to showWeather(), this function takes a response from the api and uses it to display the 5 day forecast
 function forecast5Day(apiResponse) {
     for (var i=0;i<40;i++) {
         var offsetMoment = moment.unix(apiResponse.list[i].dt).utcOffset(apiResponse.city.timezone/3600);
@@ -149,6 +157,7 @@ function forecast5Day(apiResponse) {
     }
 }
 
+// creates a button to be added to the search history (a div is actually used to prevent some of the default stylings given to a button element)
 function createHistoryButton(text) {
     newHistoryButton = $("<div>");
     newHistoryButton.text(text);
@@ -159,6 +168,7 @@ function createHistoryButton(text) {
     return newHistoryButton;
 }
 
+// handles when a button in the search history is clicked
 function historyClick(text) {
     fiveDayForecast.empty();
     var historyURL = "https://api.openweathermap.org/data/2.5/weather?q="+text+"&appid=eb152b9f91aaa5406eae378de1186186";
