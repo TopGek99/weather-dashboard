@@ -8,11 +8,29 @@ clicks the search button and the relevant information appears for that city. The
 have already searched for by clicking the button on the left hand side of the screen that corresponds to the city they wish to view
 that they had previously searched for. There is also an option to clear this history.
 
+## Technologies
+
+- HTML
+- CSS
+- Bootstrap CSS
+- JavaScript
+- jQuery
+- OpenWeather API
+- Moment.js
+
 ## Screenshots
 
 ![weather dashboard](screenshot/weather.png)
 
 ## Links
 
-- Repo (Yes this one): https://github.com/TopGek99/weather-dashboard
-- Webpage: https://topgek99.github.io/weather-dashboard
+- [Repo (Yes this one)](https://github.com/TopGek99/weather-dashboard)
+- [Webpage](https://topgek99.github.io/weather-dashboard)
+
+## Credits
+
+[Me](https://github.com/TopGek99/)
+
+## License
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
